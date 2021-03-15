@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="XCRMDemo">
+  <ActionDesign>
+    <Actions>
+      <Action Id="Cancel" Caption="取消" />
+      <Action Id="Delete" Caption="删除" />
+      <Action Id="New" Caption="新建" />
+    </Actions>
+  </ActionDesign>
+  <Options>
+    <LayoutManagerOptions RequiredFieldMark="*" />
+  </Options>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="19.1.5.0" IsNewNode="True" />
+  </SchemaModules>
+</Application>
