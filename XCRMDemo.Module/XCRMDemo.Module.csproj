@@ -120,6 +120,12 @@
     <Compile Include="BusinessObjects\Customer.cs" />
     <Compile Include="BusinessObjects\CustomerCategory.cs" />
     <Compile Include="BusinessObjects\SalesRegion.cs" />
+    <Compile Include="Controllers\CheckViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\CheckViewController.Designer.cs">
+      <DependentUpon>CheckViewController.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseUpdate\Updater.cs" />
     <Compile Include="Module.cs">
       <SubType>Component</SubType>
@@ -130,6 +136,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controllers\CheckViewController.resx">
+      <DependentUpon>CheckViewController.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>

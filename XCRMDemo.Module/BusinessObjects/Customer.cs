@@ -85,6 +85,7 @@ namespace XCRMDemo.Module.BusinessObjects
         private DateTime _birthday;
 
         [DevExpress.Xpo.DisplayName("出生日期")]
+        [RuleRequiredField("审核时必填出生日期","IsChecked")]
         public DateTime Birthday
         {
             get { return _birthday; }
@@ -200,6 +201,22 @@ namespace XCRMDemo.Module.BusinessObjects
         public XPCollection<SalesRegion> SalesRegions
         {
             get { return GetCollection<SalesRegion>("SalesRegions"); }
+        }
+
+        private bool _isChecked;
+
+        [DevExpress.Xpo.DisplayName("是否审核")]
+        [ModelDefault("AllowEdit", "False")]//使属性在界面上只读
+        public bool IsChecked
+        {
+            get
+            {
+                return _isChecked;
+            }
+            set
+            {
+                SetPropertyValue("IsChecked", ref _isChecked, value);
+            }
         }
 
     }

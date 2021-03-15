@@ -2,6 +2,7 @@
 <Application Title="XCRMDemo">
   <ActionDesign>
     <Actions>
+      <Action Id="btn_Checked" ValidationContexts="IsChecked" />
       <Action Id="Cancel" Caption="取消" />
       <Action Id="Delete" Caption="删除" />
       <Action Id="New" Caption="新建" />
