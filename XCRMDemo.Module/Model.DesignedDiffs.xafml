@@ -13,4 +13,9 @@
   <SchemaModules>
     <SchemaModule Name="SystemModule" Version="19.1.5.0" IsNewNode="True" />
   </SchemaModules>
+  <Validation>
+    <Rules>
+      <RuleRequiredField Id="DevExpress.Persistent.Validation.RuleRequiredField_XCRMDemo.Module.BusinessObjects.Customer_Name" MessageTemplateCollectionValidationMessageSuffix="(For the {TargetCollectionPropertyName}&quot; collection elements)." />
+    </Rules>
+  </Validation>
 </Application>

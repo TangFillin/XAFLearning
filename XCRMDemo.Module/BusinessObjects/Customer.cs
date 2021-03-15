@@ -54,6 +54,7 @@ namespace XCRMDemo.Module.BusinessObjects
         private string _name;
 
         [DevExpress.Xpo.DisplayName("姓名")]
+        [RuleRequiredField(CustomMessageTemplate = "姓名不能为空")]
         public string Name
         {
             get { return _name; }
@@ -114,6 +115,8 @@ namespace XCRMDemo.Module.BusinessObjects
         private string _address;
 
         [DevExpress.Xpo.DisplayName("地址")]
+        [RuleRequiredField(ResultType = ValidationResultType.Warning, CustomMessageTemplate = "如果不填写地址奖品将无法寄出，确认不填写吗？")]
+        [RuleStringComparison("地址必须以重庆市开头", DefaultContexts.Save, StringComparisonType.StartsWith, "重庆市", SkipNullOrEmptyValues = true)]//SkipNullOrEmptyValues=true可空,DefaultContexts.Save保存时生效规则
         public string Address
         {
             get { return _address; }
