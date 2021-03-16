@@ -29,7 +29,7 @@ namespace XCRMDemo.Web {
             SecurityStrategy security = (SecurityStrategy)WebApplication.Instance.Security;
             security.RegisterXPOAdapterProviders();
             DevExpress.ExpressApp.Web.Templates.DefaultVerticalTemplateContentNew.ClearSizeLimit();
-            WebApplication.Instance.SwitchToNewStyle();
+            //WebApplication.Instance.SwitchToNewStyle();
             if(ConfigurationManager.ConnectionStrings["ConnectionString"] != null) {
                 WebApplication.Instance.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
             }

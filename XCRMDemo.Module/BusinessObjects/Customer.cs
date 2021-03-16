@@ -1,5 +1,6 @@
 ﻿using DevExpress.Data.Filtering;
 using DevExpress.ExpressApp;
+using DevExpress.ExpressApp.ConditionalAppearance;
 using DevExpress.ExpressApp.DC;
 using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Base;
@@ -22,6 +23,8 @@ namespace XCRMDemo.Module.BusinessObjects
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
     [XafDisplayName("客户")]
+    [Appearance("红色禁用", "ViewItem", FontColor = "Red",Context ="ListView", TargetItems = "IsValid", Criteria = "!IsValid")]
+    [Appearance("蓝色未审批", "ViewItem", FontColor = "Blue", TargetItems = "*", Criteria = "!IsChecked")]
     public class Customer : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
         public Customer(Session session)
@@ -85,7 +88,7 @@ namespace XCRMDemo.Module.BusinessObjects
         private DateTime _birthday;
 
         [DevExpress.Xpo.DisplayName("出生日期")]
-        [RuleRequiredField("审核时必填出生日期","IsChecked")]
+        [RuleRequiredField("审核时必填出生日期", "IsChecked")]
         public DateTime Birthday
         {
             get { return _birthday; }

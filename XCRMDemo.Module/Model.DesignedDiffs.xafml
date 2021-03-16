@@ -8,6 +8,15 @@
       <Action Id="New" Caption="新建" />
     </Actions>
   </ActionDesign>
+  <Localization>
+    <LocalizationGroup Name="Enums">
+      <LocalizationGroup Name="XCRMDemo.Module.BusinessObjects.Sex">
+        <LocalizationItem Name="FEMAN" Value="女" />
+        <LocalizationItem Name="MAN" Value="男" />
+        <LocalizationItem Name="UNKNOW" Value="未知" />
+      </LocalizationGroup>
+    </LocalizationGroup>
+  </Localization>
   <Options>
     <LayoutManagerOptions RequiredFieldMark="*" />
   </Options>
