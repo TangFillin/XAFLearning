@@ -16,15 +16,17 @@ using DisplayNameAttribute = DevExpress.Xpo.DisplayNameAttribute;
 
 namespace XCRMDemo.Module.BusinessObjects
 {
+    //[NonPersistent]//不存储到数据库
     [DefaultClassOptions]
     //[ImageName("BO_Contact")]
-    //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
+    [XafDefaultProperty("Name")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
     [XafDisplayName("客户")]
-    [Appearance("红色禁用", "ViewItem", FontColor = "Red",Context ="ListView", TargetItems = "IsValid", Criteria = "!IsValid")]
+    [Appearance("红色禁用", "ViewItem", FontColor = "Red", Context = "ListView", TargetItems = "IsValid", Criteria = "!IsValid")]
     [Appearance("蓝色未审批", "ViewItem", FontColor = "Blue", TargetItems = "*", Criteria = "!IsChecked")]
+    [RuleObjectExists("", DefaultContexts.Save, "")]
     public class Customer : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
         public Customer(Session session)
@@ -50,13 +52,27 @@ namespace XCRMDemo.Module.BusinessObjects
         //    // Trigger a custom business logic for the current record in the UI (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112619.aspx).
         //    this.PersistentProperty = "Paid";
         //}
+        private string _id;
+        [XafDisplayName("异常类型编号"), Size(100)]
+        [RuleRequiredField]
+        [Indexed]
+        [Index(10)]
+        [Appearance("", BackColor = "#FFE1E1", Context = "DetailView")]
+        public string Id
+        {
+            get { return _id; }
+            set
+            {
+                SetPropertyValue("Id", ref _id, value);
+            }
+        }
 
         /// <summary>
         /// 姓名
         /// </summary>
         private string _name;
 
-        [DevExpress.Xpo.DisplayName("姓名")]
+        [XafDisplayName("姓名")]
         [RuleRequiredField(CustomMessageTemplate = "姓名不能为空")]
         public string Name
         {
@@ -72,7 +88,7 @@ namespace XCRMDemo.Module.BusinessObjects
         /// </summary>
         private Sex _sex;
 
-        [DevExpress.Xpo.DisplayName("性别")]
+        [XafDisplayName("性别")]
         public Sex Sex
         {
             get { return _sex; }
@@ -82,13 +98,27 @@ namespace XCRMDemo.Module.BusinessObjects
             }
         }
 
+        private string _sex1;
+        [XafDisplayName("性别一")]
+        [ModelDefault("PredefinedValues", "男;女")]
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        public string Sex1
+        {
+            get { return _sex1; }
+
+            set
+            {
+                SetPropertyValue("Sex1", ref _sex1, value);
+            }
+        }
         /// <summary>
         /// 出生日期
         /// </summary>
         private DateTime _birthday;
 
-        [DevExpress.Xpo.DisplayName("出生日期")]
+        [XafDisplayName("出生日期")]
         [RuleRequiredField("审核时必填出生日期", "IsChecked")]
+
         public DateTime Birthday
         {
             get { return _birthday; }
@@ -103,7 +133,7 @@ namespace XCRMDemo.Module.BusinessObjects
         /// </summary>
         private string _phone;
 
-        [DevExpress.Xpo.DisplayName("手机号码")]
+        [XafDisplayName("手机号码")]
         public string Phone
         {
             get { return _phone; }
@@ -118,7 +148,7 @@ namespace XCRMDemo.Module.BusinessObjects
         /// </summary>
         private string _address;
 
-        [DevExpress.Xpo.DisplayName("地址")]
+        [XafDisplayName("地址")]
         [RuleRequiredField(ResultType = ValidationResultType.Warning, CustomMessageTemplate = "如果不填写地址奖品将无法寄出，确认不填写吗？")]
         [RuleStringComparison("地址必须以重庆市开头", DefaultContexts.Save, StringComparisonType.StartsWith, "重庆市", SkipNullOrEmptyValues = true)]//SkipNullOrEmptyValues=true可空,DefaultContexts.Save保存时生效规则
         public string Address
@@ -135,7 +165,8 @@ namespace XCRMDemo.Module.BusinessObjects
         /// </summary>
         private decimal _income;
 
-        [DevExpress.Xpo.DisplayName("年收入")]
+        [XafDisplayName("年收入")]
+        [ModelDefault("Income", "0.1")]
         public decimal Income
         {
             get { return _income; }
@@ -145,12 +176,13 @@ namespace XCRMDemo.Module.BusinessObjects
             }
         }
 
+
         /// <summary>
         /// 照片
         /// </summary>
         //private byte[] _photo;
 
-        [DevExpress.Xpo.DisplayName("照片")]
+        [XafDisplayName("照片")]
         [Size(SizeAttribute.Unlimited), VisibleInListView(true)]
         [ImageEditor(ListViewImageEditorMode = ImageEditorMode.PictureEdit,
             DetailViewImageEditorMode = ImageEditorMode.PictureEdit,
@@ -167,7 +199,7 @@ namespace XCRMDemo.Module.BusinessObjects
         /// 是否启用
         /// </summary>
         private bool isValid;
-        [DevExpress.Xpo.DisplayName("是否启用")]
+        [XafDisplayName("是否启用")]
         public bool IsValid
         {
             get { return isValid; }
@@ -179,7 +211,7 @@ namespace XCRMDemo.Module.BusinessObjects
 
         private CustomerCategory _customerCategory;
 
-        [DevExpress.Xpo.DisplayName("客户类型")]
+        [XafDisplayName("客户类型")]
         public CustomerCategory CustomerCategory
         {
             get
@@ -192,14 +224,14 @@ namespace XCRMDemo.Module.BusinessObjects
             }
         }
 
-        [DevExpress.Xpo.DisplayName("联系人")]
+        [XafDisplayName("联系人")]
         [Association]
         public XPCollection<Contact> Contacts
         {
             get { return GetCollection<Contact>("Contacts"); }
         }
 
-        [DevExpress.Xpo.DisplayName("销售区域")]
+        [XafDisplayName("销售区域")]
         [Association]
         public XPCollection<SalesRegion> SalesRegions
         {
@@ -208,7 +240,7 @@ namespace XCRMDemo.Module.BusinessObjects
 
         private bool _isChecked;
 
-        [DevExpress.Xpo.DisplayName("是否审核")]
+        [XafDisplayName("是否审核")]
         [ModelDefault("AllowEdit", "False")]//使属性在界面上只读
         public bool IsChecked
         {
@@ -219,6 +251,20 @@ namespace XCRMDemo.Module.BusinessObjects
             set
             {
                 SetPropertyValue("IsChecked", ref _isChecked, value);
+            }
+        }
+        private Contact _contact;
+        [IgnoreForAssociation]
+        [XafDisplayName("直接联系人")]
+        public Contact Contact
+        {
+            get
+            {
+                return _contact;
+            }
+            set
+            {
+                SetPropertyValue("Contact", ref _contact, value);
             }
         }
 

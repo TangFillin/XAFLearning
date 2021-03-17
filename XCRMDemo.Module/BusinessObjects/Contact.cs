@@ -69,5 +69,48 @@ namespace XCRMDemo.Module.BusinessObjects
             get { return _customer; }
             set { SetPropertyValue("Customer", ref _customer, value); }
         }
+
+
+        private string webPageAddress;
+        private string nickName;
+        private string spouseName;
+        private TitleOfCourtesy titleOfCourtesy;
+        private string notes;
+        private DateTime anniversary;
+        public string WebPageAddress
+        {
+            get { return webPageAddress; }
+            set { SetPropertyValue("WebPageAddress", ref webPageAddress, value); }
+        }
+        public string NickName
+        {
+            get { return nickName; }
+            set { SetPropertyValue("NickName", ref nickName, value); }
+        }
+        public string SpouseName
+        {
+            get { return spouseName; }
+            set { SetPropertyValue("SpouseName", ref spouseName, value); }
+        }
+        public TitleOfCourtesy TitleOfCourtesy
+        {
+            get { return titleOfCourtesy; }
+            set { SetPropertyValue("TitleOfCourtesy", ref titleOfCourtesy, value); }
+        }
+        public DateTime Anniversary
+        {
+            get { return anniversary; }
+            set { SetPropertyValue("Anniversary", ref anniversary, value); }
+        }
+        [Size(4096)]
+        [Custom("Caption","说明")]
+        public string Notes
+        {
+            get { return notes; }
+            set { SetPropertyValue("Notes", ref notes, value); }
+        }
+
     }
+    public enum TitleOfCourtesy { Dr, Miss, Mr, Mrs, Ms };
+
 }

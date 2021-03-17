@@ -126,6 +126,18 @@
     <Compile Include="Controllers\CheckViewController.Designer.cs">
       <DependentUpon>CheckViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\ClearViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\ClearViewController.Designer.cs">
+      <DependentUpon>ClearViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\FindByCategoryViewController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\FindByCategoryViewController.Designer.cs">
+      <DependentUpon>FindByCategoryViewController.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseUpdate\Updater.cs" />
     <Compile Include="Module.cs">
       <SubType>Component</SubType>
@@ -139,7 +151,16 @@
     <EmbeddedResource Include="Controllers\CheckViewController.resx">
       <DependentUpon>CheckViewController.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\ClearViewController.resx">
+      <DependentUpon>ClearViewController.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\FindByCategoryViewController.resx">
+      <DependentUpon>FindByCategoryViewController.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
+    <EmbeddedResource Include="Module.resx">
+      <DependentUpon>Module.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>

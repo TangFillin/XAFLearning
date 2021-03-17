@@ -87,6 +87,8 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
+    <Reference Include="DevExpress.ExpressApp.Scheduler.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.ExpressApp.Scheduler.Win.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.ExpressApp.Security.v19.1">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
@@ -199,6 +201,8 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
     </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v19.1, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v19.1.Core, Version=19.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraTreeList.v19.1">
       <SpecificVersion>False</SpecificVersion>
       <Private>False</Private>
@@ -279,6 +283,10 @@
     <Compile Include="XafSplashScreen.Designer.cs">
       <DependentUpon>XafSplashScreen.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="WinApplication.resx">
+      <DependentUpon>WinApplication.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="XafSplashScreen.resx">
       <DependentUpon>XafSplashScreen.cs</DependentUpon>
     </EmbeddedResource>

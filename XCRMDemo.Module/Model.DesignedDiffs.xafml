@@ -2,7 +2,7 @@
 <Application Title="XCRMDemo">
   <ActionDesign>
     <Actions>
-      <Action Id="btn_Checked" ValidationContexts="IsChecked" />
+      <Action Id="btn_Checked" ValidationContexts="IsChecked" ImageMode="UseItemImage" ImageName="Actions_CheckCircled" />
       <Action Id="Cancel" Caption="取消" />
       <Action Id="Delete" Caption="删除" />
       <Action Id="New" Caption="新建" />
@@ -17,6 +17,15 @@
       </LocalizationGroup>
     </LocalizationGroup>
   </Localization>
+  <NavigationItems>
+    <Items>
+      <Item Id="基础数据" ImageName="ChartDataLabels_InsideBase">
+        <Items>
+          <Item Id="SalesRegion_ListView" ImageName="CustomerQuickSales" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
   <Options>
     <LayoutManagerOptions RequiredFieldMark="*" />
   </Options>
@@ -28,4 +37,19 @@
       <RuleRequiredField Id="DevExpress.Persistent.Validation.RuleRequiredField_XCRMDemo.Module.BusinessObjects.Customer_Name" MessageTemplateCollectionValidationMessageSuffix="(For the {TargetCollectionPropertyName}&quot; collection elements)." />
     </Rules>
   </Validation>
+  <Views>
+    <ListView Id="Customer_ListView">
+      <Columns>
+        <ColumnInfo Id="Photo" Index="-1" />
+        <ColumnInfo Id="Sex" Index="1" />
+        <ColumnInfo Id="Birthday" Index="2" />
+        <ColumnInfo Id="Phone" Index="3" />
+        <ColumnInfo Id="Address" Index="4" />
+        <ColumnInfo Id="Income" Index="5" />
+        <ColumnInfo Id="IsValid" Index="6" />
+        <ColumnInfo Id="CustomerCategory" Index="7" />
+        <ColumnInfo Id="IsChecked" Index="8" />
+      </Columns>
+    </ListView>
+  </Views>
 </Application>
