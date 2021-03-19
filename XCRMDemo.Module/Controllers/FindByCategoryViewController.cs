@@ -20,6 +20,7 @@ namespace XCRMDemo.Module.Controllers
     // For more typical usage scenarios, be sure to check out https://documentation.devexpress.com/eXpressAppFramework/clsDevExpressExpressAppViewControllertopic.aspx.
     public partial class FindByCategoryViewController : ViewController
     {
+        [Obsolete]
         public FindByCategoryViewController()
         {
             InitializeComponent();
@@ -46,6 +47,7 @@ namespace XCRMDemo.Module.Controllers
             FindByCategory.Active.SetItemValue("ObjectType", View.ObjectTypeInfo.Type == typeof(Customer));
         }
 
+        [Obsolete]
         private void FindByCategory_Execute(object sender, ParametrizedActionExecuteEventArgs e)
         {
 

@@ -31,6 +31,7 @@ namespace XCRMDemo.Module.Controllers
         {
             this.components = new System.ComponentModel.Container();
             this.btn_Checked = new DevExpress.ExpressApp.Actions.SimpleAction(this.components);
+            this.printAction = new DevExpress.ExpressApp.Actions.SingleChoiceAction(this.components);
             // 
             // btn_Checked
             // 
@@ -43,14 +44,23 @@ namespace XCRMDemo.Module.Controllers
             this.btn_Checked.TypeOfView = typeof(DevExpress.ExpressApp.DetailView);
             this.btn_Checked.Execute += new DevExpress.ExpressApp.Actions.SimpleActionExecuteEventHandler(this.btn_Checked_Execute);
             // 
+            // printAction
+            // 
+            this.printAction.Caption = "打印";
+            this.printAction.ConfirmationMessage = null;
+            this.printAction.Id = "printAction";
+            this.printAction.ToolTip = null;
+            // 
             // CheckViewController
             // 
             this.Actions.Add(this.btn_Checked);
+            this.Actions.Add(this.printAction);
 
         }
 
         #endregion
 
         private DevExpress.ExpressApp.Actions.SimpleAction btn_Checked;
+        private DevExpress.ExpressApp.Actions.SingleChoiceAction printAction;
     }
 }

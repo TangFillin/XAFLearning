@@ -52,6 +52,22 @@ namespace XCRMDemo.Module.BusinessObjects
         //    // Trigger a custom business logic for the current record in the UI (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112619.aspx).
         //    this.PersistentProperty = "Paid";
         //}
+
+
+        [Action(Caption = "生成档案", TargetObjectsCriteria = "DocumentInfos.Count=0")]
+        public void GenerateDoc()
+        {
+            string infos = "1.入职申请表;2.登记信息;3.专业测试";
+            foreach (var item in infos.Split(';'))
+            {
+                DocumentInfo d = new DocumentInfo(Session)
+                {
+                    DocType = item,
+                    Customer = this
+                };
+
+            }
+        }
         private string _id;
         [XafDisplayName("异常类型编号"), Size(100)]
         [RuleRequiredField]
@@ -176,6 +192,17 @@ namespace XCRMDemo.Module.BusinessObjects
             }
         }
 
+        //private DocumentInfo _documentInfo;
+        [DevExpress.Xpo.Aggregated]
+        [Association("Customer-DocumentInfos")]
+        public XPCollection<DocumentInfo> DocumentInfos
+        {
+            get
+            {
+                return GetCollection<DocumentInfo>("DocumentInfos");
+            }
+        }
+
 
         /// <summary>
         /// 照片
@@ -268,6 +295,56 @@ namespace XCRMDemo.Module.BusinessObjects
             }
         }
 
+        private DateSpan _dateSpan;
+
+        [XafDisplayName("起止时间")]
+        public DateSpan DateSpan
+        {
+            get
+            {
+                return _dateSpan;
+            }
+            set
+            {
+                SetPropertyValue("DateSpan", ref _dateSpan, value);
+            }
+        }
+
+
+
+    }
+    public class DateSpan //: BaseObject
+    {
+        private DateTime startDate;
+
+        //[XafDisplayName("开始时间")]
+        public DateTime StartDate
+        {
+            get
+            {
+                return startDate;
+            }
+            set
+            {
+                //SetPropertyValue("StartDate", ref startDate, value);
+                startDate = value;
+            }
+        }
+
+        private DateTime endDate;
+        //[XafDisplayName("截至时间")]
+        public DateTime EndDate
+        {
+            get
+            {
+                return endDate;
+            }
+            set
+            {
+                //SetPropertyValue("EndDate", ref endDate, value);
+                endDate = value;
+            }
+        }
     }
 
     public enum Sex

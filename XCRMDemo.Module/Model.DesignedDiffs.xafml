@@ -6,6 +6,7 @@
       <Action Id="Cancel" Caption="取消" />
       <Action Id="Delete" Caption="删除" />
       <Action Id="New" Caption="新建" />
+      <Action Id="printAction" PaintStyle="CaptionAndImage" ImageName="Print" />
     </Actions>
   </ActionDesign>
   <Localization>
@@ -38,6 +39,68 @@
     </Rules>
   </Validation>
   <Views>
+    <DetailView Id="Customer_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="38.522427440633244">
+            <TabbedGroup Id="Item1" CaptionLocation="Top" Index="0" RelativeSize="100" IsNewNode="True">
+              <LayoutGroup Id="Customer" ShowCaption="True" Direction="Horizontal" Index="0" RelativeSize="100" IsNewNode="True">
+                <LayoutGroup Id="Customer_col1" ShowCaption="False" Index="0" RelativeSize="49.942196531791907" IsNewNode="True">
+                  <LayoutItem Id="Id" ViewItem="Id" Index="0" RelativeSize="17.672413793103448" IsNewNode="True" />
+                  <LayoutItem Id="Name" ViewItem="Name" Index="1" RelativeSize="12.931034482758621" IsNewNode="True" />
+                  <LayoutItem Id="Sex" ViewItem="Sex" Index="2" RelativeSize="12.931034482758621" IsNewNode="True" />
+                  <LayoutItem Id="Sex1" ViewItem="Sex1" Index="3" RelativeSize="12.931034482758621" IsNewNode="True" />
+                  <LayoutItem Id="Birthday" ViewItem="Birthday" Index="4" RelativeSize="12.931034482758621" IsNewNode="True" />
+                  <LayoutItem Id="Phone" ViewItem="Phone" Index="5" RelativeSize="12.931034482758621" IsNewNode="True" />
+                  <LayoutItem Id="Address" ViewItem="Address" Index="6" RelativeSize="17.672413793103448" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutGroup Id="Customer_col2" ShowCaption="False" Index="1" RelativeSize="50.057803468208093" IsNewNode="True">
+                  <LayoutItem Id="Income" ViewItem="Income" Index="0" RelativeSize="17.672413793103448" IsNewNode="True" />
+                  <LayoutItem Id="Photo" ViewItem="Photo" Index="1" RelativeSize="12.931034482758621" IsNewNode="True" />
+                  <LayoutItem Id="IsValid" ViewItem="IsValid" Index="2" RelativeSize="12.931034482758621" IsNewNode="True" />
+                  <LayoutItem Id="CustomerCategory" ViewItem="CustomerCategory" Index="3" RelativeSize="12.931034482758621" IsNewNode="True" />
+                  <LayoutItem Id="IsChecked" ViewItem="IsChecked" Index="4" RelativeSize="12.931034482758621" IsNewNode="True" />
+                  <LayoutItem Id="Contact" ViewItem="Contact" Index="5" RelativeSize="12.931034482758621" IsNewNode="True" />
+                  <LayoutItem Id="DateSpan" ViewItem="DateSpan" Index="6" RelativeSize="17.672413793103448" IsNewNode="True" />
+                </LayoutGroup>
+              </LayoutGroup>
+              <LayoutGroup Id="DocumentInfos" ShowCaption="True" Caption="Document Infos" Index="1" RelativeSize="100" IsNewNode="True">
+                <LayoutItem Id="DocumentInfos" ViewItem="DocumentInfos" Index="0" RelativeSize="100" IsNewNode="True" />
+              </LayoutGroup>
+            </TabbedGroup>
+            <LayoutGroup Id="Customer" Index="1" RelativeSize="60.132158590308372" Removed="True">
+              <LayoutGroup Id="Customer_col1" RelativeSize="49.942462600690448">
+                <LayoutItem Id="Address" RelativeSize="17.672413793103448" />
+                <LayoutItem Id="Birthday" RelativeSize="12.931034482758621" />
+                <LayoutItem Id="Id" RelativeSize="17.672413793103448" />
+                <LayoutItem Id="Name" RelativeSize="12.931034482758621" />
+                <LayoutItem Id="Phone" RelativeSize="12.931034482758621" />
+                <LayoutItem Id="Sex" RelativeSize="12.931034482758621" />
+                <LayoutItem Id="Sex1" RelativeSize="12.931034482758621" />
+              </LayoutGroup>
+              <LayoutGroup Id="Customer_col2" RelativeSize="50.057537399309552">
+                <LayoutItem Id="Contact" RelativeSize="12.931034482758621" />
+                <LayoutItem Id="CustomerCategory" RelativeSize="12.931034482758621" />
+                <LayoutItem Id="DateSpan" RelativeSize="17.672413793103448" />
+                <LayoutItem Id="Income" RelativeSize="17.672413793103448" />
+                <LayoutItem Id="IsChecked" RelativeSize="12.931034482758621" />
+                <LayoutItem Id="IsValid" RelativeSize="12.931034482758621" />
+                <LayoutItem Id="Photo" RelativeSize="12.931034482758621" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <TabbedGroup Id="Tabs" RelativeSize="61.477572559366756">
+            <LayoutGroup Id="Contacts" Index="0" RelativeSize="100">
+              <LayoutItem Id="Contacts" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="SalesRegions" Index="1" RelativeSize="100">
+              <LayoutItem Id="SalesRegions" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutGroup Id="DocumentInfos" Removed="True" />
+          </TabbedGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
     <ListView Id="Customer_ListView">
       <Columns>
         <ColumnInfo Id="Photo" Index="-1" />
